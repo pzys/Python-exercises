@@ -26,8 +26,10 @@ except OSError as error:
 for quizNum in range(35):
     quiz_name = 'quiz'+str(quizNum+1)+'.txt'
     quiz = open(os.path.join('quizes', quiz_name),'w')
-    quiz_answers = open(os.path.join('quizes',quiz_name+"_answer"),'w')
-    quiz_answers.write("Answers for the quiz: " + quiz_name + "\n")
+
+    quiz_answer_name = 'quiz_answer' + str(quizNum + 1) + '.txt'
+    quiz_answers = open(os.path.join('quizes', quiz_answer_name),'w')
+    quiz_answers.write("Answers for the quiz: " + quiz_answer_name + "\n")
 
     quiz.write('Name:\n\nDate:\n\nPeriod:\n\n')
     quiz.write((' ' * 20) + 'State Capitals Quiz (Form %s)' % (quizNum + 1))
@@ -54,7 +56,7 @@ for quizNum in range(35):
 
         for j in range(len(answers)):
             quiz.write("\n"+" "*10+option[j]+'. '+answers[j])
-            
+
 quiz.close()
 quiz_answers.close()
 
